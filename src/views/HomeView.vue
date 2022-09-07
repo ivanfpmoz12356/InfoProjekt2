@@ -4,11 +4,12 @@
           <v-col cols="12">
               <v-text-field v-model="search"
                             append-icon="mdi-magnify"
-                            label="Search"
+                            label="Pretraga"
                             single-line
                             hide-details
                             :loading="isLoading"
-                            @input="pretraga">
+                            @input="pretraga"
+                            >
               </v-text-field>
 
           </v-col>
@@ -58,7 +59,7 @@
 
       methods: {
           getData() {
-              let api = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
+              let api = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=cocktail"
               return this.axios.get(api, {
                   params: {
                       'page': this.page,
@@ -126,5 +127,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.v-text-field{
+    width:400px;
 }
 </style>

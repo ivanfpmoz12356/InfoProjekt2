@@ -3,7 +3,7 @@
     <v-row>
       <v-col
         ><v-card height="auto">
-          <v-row justify="center"> <h1>Prijavite se.</h1> </v-row>
+          <v-row justify="center"> <h1>Prijavite se i dodajte komentar i ocjenu:</h1> </v-row>
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-col cols="12">
               <v-text-field
@@ -31,7 +31,7 @@
                 </template>
                 <v-card>
                   <v-card-title>
-                    <span class="text-h5">Dodavanje recenzije</span>
+                    <span class="text-h5">Dodavanje ocjene koktela</span>
                   </v-card-title>
                   <v-card-text>
                     <v-container>
@@ -44,16 +44,20 @@
                         </v-col>
                         <v-col cols="12">
                           <v-text-field
-                            label="Upišite vaše pravo ime"
+                            label="Upišite vaše ime"
+                            required
+                          ></v-text-field>
+                          <v-text-field
+                            label="Upišite ime koktela"
                             required
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12">
-                          <h2>Upišite vašu recenziju:</h2>
+                          <h2>Upišite vašu ocjenu i komentar:</h2>
                           <v-textarea
-                            background-color="teal lighten-3"
+                            background-color="grey"
                             color="Black"
-                            label="Recenzija"
+                            label="Ocjena i komentar"
                             clearable
                           ></v-textarea>
                         </v-col>
@@ -77,7 +81,7 @@
                       text
                       @click="
                         dialog = false;
-                        dodanaRecenzija = true;
+                        dodanaOcjena = true;
                       "
                     >
                       Dodaj
@@ -93,8 +97,8 @@
               color="teal lighten-3"
               dark
               dismissible
-              v-model="dodanaRecenzija"
-              >Uspješno dodana recenzija!</v-alert
+              v-model="dodanaOcjena"
+              >Uspješno dodana ocjena i komentar!</v-alert
             >
           </v-row>
           <v-row justify="center">
@@ -104,6 +108,7 @@
               dark
               dismissible
               v-model="nedodano"
+              :timeout="timeout"
               >Odgođeno dodavanje recenzije!</v-alert
             >
           </v-row>
@@ -122,12 +127,12 @@ export default {
       password: "",
       valid: true,
       loginAlert: false,
-      nameRules: [(v) => !!v || "Upišite vaše korisničko ime!"],
-      passwordRules: [(v) => !!v || "Upišite lozinku!"],
       dialog: false,
-      dodanaRecenzija: false,
+      dodanaOcjena: false,
       nedodano: false,
+      timeout:2000,
     };
-  },
+  }
+
 };
 </script>

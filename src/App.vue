@@ -57,13 +57,14 @@ export default {
         path: "/",
       },
       {
-        text: "INFO",
-        path: "/info",
-      },
-      {
         text: "Ocjena i komentar",
         path: "/komentar",
       },
+      {
+        text: "INFO",
+        path: "/info",
+      },
+
 
     ],
     icons: [
